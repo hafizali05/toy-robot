@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left {
+    flex:1;
+    border: 1px solid blue;
+}
+
+.right {
+    flex:1;
+    border: 1px solid red;
+}
