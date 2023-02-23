@@ -1,0 +1,16 @@
+.parent {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.blue {
+    background: blue;
+    width: 100px;
+    height: 100px;
+}
+
+.red {
+    background: red;
+    width: 100px;
+    height: 100px;
+}
