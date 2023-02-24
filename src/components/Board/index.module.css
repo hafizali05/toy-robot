@@ -1,16 +1,16 @@
 .parent {
     display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: repeat(5, 150px);
 }
 
 .blue {
     background: blue;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+        height: 150px;
 }
 
 .red {
     background: red;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+        height: 150px;
 }
