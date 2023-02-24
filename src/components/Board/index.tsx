@@ -1,4 +1,4 @@
-import styles from './index.module.css';
+import styles from './style.module.css';
 const styleClass = [styles.blue, styles.red];
 const getBackgroundColor = (index: number) => styleClass[index % 2];
 export const Board = () => {

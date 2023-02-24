@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import styles from './App.module.css';
-import { Board } from './components/Board';
+import styles from './style.module.css';
+import { Board } from '../components/Board';
+import { CommandInput } from '../components/CommandInput';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,7 +12,9 @@ function App() {
       <section className={styles.left}>
         <Board />
       </section>
-      <section className={styles.right}>input and result section</section>
+      <section className={styles.right}>
+        <CommandInput />
+      </section>
     </main>
   )
 }
