@@ -1,0 +1,17 @@
+.mainContainer {
+    display: flex;
+}
+
+.actionContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navigateContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
