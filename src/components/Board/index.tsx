@@ -7,7 +7,7 @@ export const Board = () => {
             {
                 Array.from({ length: 25 })
                     .map(
-                        (e, index) => <div className={getBackgroundColor(index)} />
+                        (e, index) => <div key={index} className={getBackgroundColor(index)} />
                     )
             }
         </div>

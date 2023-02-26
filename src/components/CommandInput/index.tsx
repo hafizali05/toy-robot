@@ -1,6 +1,7 @@
-import { useCommands } from "../../hooks/useCommands"
+import { ACTIONS, useCommands } from "../../hooks/useCommands"
+import { ActionInputs } from "../ActionInputs";
 import styles from './style.module.css'
-export const CommandInput = () => {
+export function CommandInput() {
     const { state, handler, ref } = useCommands();
     return (
         <div className={styles.mainContainer}>
@@ -12,14 +13,18 @@ export const CommandInput = () => {
                     <li>Place wall</li>
                     <li>Generate report</li>
                 </ul>
-                <div>
-                    <select>
-                        <option value="PLACE_ROBOT">Place robot</option>
-                        <option value="PLACE_WALL">Place wall</option>
-                        <option value="REPORT">Report</option>
+                <form action="">
+                    <select
+                        defaultValue={''}
+                        onChange={handler.handleActionChange}>
+                        <option disabled value={''} > -- select an action -- </option>
+                        <option value={ACTIONS.PLACE_ROBOT}>Place robot</option>
+                        <option value={ACTIONS.PLACE_WALL}>Place wall</option>
+                        <option value={ACTIONS.REPORT}>Report</option>
                     </select>
+                    <ActionInputs />
                     <button onClick={handler.execute}>Run</button>
-                </div>
+                </form>
             </div>
             <hr />
             <div className={styles.navigateContainer}>
@@ -27,9 +32,9 @@ export const CommandInput = () => {
                 <span>Use below controls to change the direction of robot and click move button to step forward</span>
                 <br />
                 <div>
-                    <button>Left</button>
-                    <button>Move ^</button>
-                    <button>Right</button>
+                    <button>Face left</button>
+                    <button>Move ahead</button>
+                    <button>Face right</button>
                 </div>
             </div>
         </div>

@@ -1,0 +1,14 @@
+.actionInputContainer {
+    display: flex;
+    column-gap: 2px;
+}
+
+
+
+#row {
+    width: 20px;
+}
+
+#col {
+    width: 20px;
+}
