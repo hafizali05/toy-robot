@@ -3,6 +3,7 @@ import { ActionInputs } from "../ActionInputs";
 import styles from './style.module.css'
 export function CommandInput() {
     const { state, handler, ref } = useCommands();
+    console.log('state', state.action)
     return (
         <div className={styles.mainContainer}>
             <div className={styles.actionContainer}>
@@ -22,7 +23,7 @@ export function CommandInput() {
                         <option value={ACTIONS.PLACE_WALL}>Place wall</option>
                         <option value={ACTIONS.REPORT}>Report</option>
                     </select>
-                    <ActionInputs />
+                    <ActionInputs action={state.action} />
                     <button onClick={handler.execute}>Run</button>
                 </form>
             </div>

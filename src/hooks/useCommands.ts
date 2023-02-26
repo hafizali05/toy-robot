@@ -5,9 +5,10 @@ export enum ACTIONS {
     PLACE_WALL,
     REPORT
 }
+export type ActionState = ACTIONS | null;
 export function useCommands() {
     const commandInputRef = useRef<HTMLInputElement>(null);
-    const [action, setAction] = useState<ACTIONS | null>(null);
+    const [action, setAction] = useState<ActionState>(null);
     const handleActionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setAction(+event.target.value)
     }
@@ -15,7 +16,7 @@ export function useCommands() {
 
     }
     return {
-        state: {},
+        state: { action },
         ref: { commandInputRef },
         handler: { handleActionChange, execute }
     }
