@@ -23,20 +23,6 @@ export function CommandInput() {
                     <li>Generate report</li>
                 </ul>
                 <form onSubmit={handler.handleBoardAction}>
-                    {/* <div>
-                        <select role="combobox" value={"IE"}>
-                            <option role="option" value="">
-                                Select a country
-                            </option>
-                            {countries.map(country => (
-                                <option key={country.isoCode} role="option" value={country.isoCode}>
-                                    {country.name}
-                                </option>
-                            ))}
-                        </select>
-                    </div> */}
-                    {/* <label htmlFor="actionSelector">action selector</label> */}
-
                     <select
                         role={'combobox'}
                         value={state.selectedAction ?? ""}
