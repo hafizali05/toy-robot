@@ -1,9 +1,17 @@
-import { ACTIONS, useCommands } from "../../hooks/useCommands"
+import { useContext } from "react";
+import { GlobalContext } from "../../Context";
+import { ACTIONS, UseCommand } from "../../hooks/useCommands";
 import { ActionInputs } from "../ActionInputs";
-import styles from './style.module.css'
+import styles from './style.module.css';
+export const actionList = [ACTIONS.PLACE_ROBOT, ACTIONS.PLACE_WALL, ACTIONS.REPORT];
+const countries = [
+    { name: "Austria", isoCode: "AT" },
+    { name: "United States", isoCode: "US" },
+    { name: "Ireland", isoCode: "IE" },
+]
 export function CommandInput() {
-    const { state, handler, ref } = useCommands();
-    console.log('state', state.action)
+    const { state, handler } = useContext<UseCommand>(GlobalContext);
+    console.log('ccomm input', state)
     return (
         <div className={styles.mainContainer}>
             <div className={styles.actionContainer}>
@@ -14,17 +22,41 @@ export function CommandInput() {
                     <li>Place wall</li>
                     <li>Generate report</li>
                 </ul>
-                <form action="">
+                <form onSubmit={handler.handleBoardAction}>
+                    {/* <div>
+                        <select role="combobox" value={"IE"}>
+                            <option role="option" value="">
+                                Select a country
+                            </option>
+                            {countries.map(country => (
+                                <option key={country.isoCode} role="option" value={country.isoCode}>
+                                    {country.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div> */}
+                    {/* <label htmlFor="actionSelector">action selector</label> */}
+
                     <select
-                        defaultValue={''}
+                        role={'combobox'}
+                        value={state.selectedAction ?? ""}
+                        id="actionSelector"
+                        name="actionList"
                         onChange={handler.handleActionChange}>
-                        <option disabled value={''} > -- select an action -- </option>
-                        <option value={ACTIONS.PLACE_ROBOT}>Place robot</option>
-                        <option value={ACTIONS.PLACE_WALL}>Place wall</option>
-                        <option value={ACTIONS.REPORT}>Report</option>
+                        <option role={'option'} disabled value="">select an action</option>
+                        {
+                            actionList.map(item => (
+                                <option
+                                    role={'option'}
+                                    key={item}
+                                    value={item}>
+                                    {item}
+                                </option>
+                            ))
+                        }
                     </select>
-                    <ActionInputs action={state.action} />
-                    <button onClick={handler.execute}>Run</button>
+                    <ActionInputs action={state.selectedAction} />
+                    <button>Run</button>
                 </form>
             </div>
             <hr />
@@ -41,3 +73,4 @@ export function CommandInput() {
         </div>
     )
 }
+

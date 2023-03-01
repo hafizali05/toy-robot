@@ -1,0 +1,19 @@
+.robot {
+    position: relative;
+}
+
+.east {
+    rotate: 90deg;
+}
+
+.west {
+    rotate: 270deg;
+}
+
+.north {
+    rotate: 0deg;
+}
+
+.south {
+    rotate: 180deg;
+}

@@ -1,5 +1,5 @@
-import React from 'react';
 import { ACTIONS, ActionState } from '../../hooks/useCommands';
+import { actionList } from '../CommandInput';
 import { PlaceRobot } from '../PlaceRobot';
 import { PlaceWall } from '../PlaceWall';
 
@@ -9,8 +9,8 @@ const ActionOptions = {
     [ACTIONS.REPORT]: () => null
 }
 export function ActionInputs({ action }: { action: ActionState }) {
-    console.log("action inputs", action)
-    if (action! in ACTIONS) {
+
+    if (actionList.includes(action!)) {
         const ActionComponent = ActionOptions[action!];
         return <ActionComponent />;
     }
